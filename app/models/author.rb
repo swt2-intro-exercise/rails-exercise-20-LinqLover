@@ -8,4 +8,8 @@ class Author < ApplicationRecord
   validates :homepage,
             presence: true,
             format: URI::DEFAULT_PARSER.make_regexp(%w[http https])
+
+  def name
+    "#{first_name} #{last_name}"
+  end
 end
