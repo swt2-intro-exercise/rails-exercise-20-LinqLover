@@ -1,0 +1,30 @@
+<%= form_with(model: @author, local: true) do |form| %>
+  <% if @author.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        Could not save this author because of
+				<%= pluralize(@author.errors.count, "error") %>:
+      </h2>
+      <ul>
+        <% @author.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :first_name %>
+    <%= form.text_field :last_name %>
+  </p>
+
+	<p>
+    <%= form.label :homepage %><br>
+    <%= form.text_field :homepage %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
