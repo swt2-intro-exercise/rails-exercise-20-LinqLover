@@ -29,11 +29,14 @@ RSpec.describe PapersController, type: :controller do
   # Paper. As you add validations to Paper, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    { title: 'my_title', venue: 'my_venue', year: 1234 }#, authors: {} }
+    {
+      title: 'my_title', venue: 'my_venue', year: 1234,
+      authors: [build(:author)]
+    }
   end
 
   let(:invalid_attributes) do
-    { title: nil, venue: 's', year: 'not a number' }
+    { title: nil, venue: 's', year: 'not a number', authors: nil }
   end
 
   # This should return the minimal set of values that should be in the session
@@ -97,7 +100,15 @@ RSpec.describe PapersController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       let(:new_attributes) do
-        { title: 'new_title', venue: 'new_venue', year: 1235 }#, authors: {} }
+        {
+          title: 'new_title',
+          venue: 'new_venue',
+          year: 1235,
+          authors: [Author.new(
+            first_name: 'John', last_name: 'Doe',
+            homepage: 'https://example.com')
+          ]
+        }
       end
 
       it "updates the requested paper" do
