@@ -50,6 +50,17 @@ RSpec.describe PapersController, type: :controller do
       get :index, params: {}, session: valid_session
       expect(response).to be_successful
     end
+
+    render_views
+    it "can be filtered by year" do
+      Paper.create! valid_attributes
+      get :index, params: { year: 1234 }, session: valid_session
+      expect(response.body).to match(/my_title/)
+
+      Paper.create! valid_attributes
+      get :index, params: { year: 1235 }, session: valid_session
+      expect(response.body).not_to match(/my_title/s)
+    end
   end
 
   describe "GET #show" do
