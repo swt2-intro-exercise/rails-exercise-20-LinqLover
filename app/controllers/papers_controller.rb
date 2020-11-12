@@ -46,13 +46,14 @@ class PapersController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_paper
-      @paper = Paper.find(params[:id])
-    end
 
-    # Only allow a trusted parameter "white list" through.
-    def paper_params
-      params.require(:paper).permit(:title, :venue, :year)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_paper
+    @paper = Paper.find(params[:id])
+  end
+
+  # Only allow a trusted parameter "white list" through.
+  def paper_params
+    params.require(:paper).permit(:title, :venue, :year, author_ids: [])
+  end
 end
