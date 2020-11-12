@@ -12,5 +12,14 @@
   <a href=<%= @author.homepage %>><%= @author.homepage %></a>
 </p>
 
+<p>
+  <strong>Papers:</strong>
+  <ul>
+  <% @author.papers.each do |paper| %>
+    <li><%= link_to paper.title, paper_path(paper) %></li>
+  <% end %>
+  </ul>
+</p>
+
 <%= link_to 'Edit', edit_author_path %>
 <%= link_to 'Back', authors_path %>
