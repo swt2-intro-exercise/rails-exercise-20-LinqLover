@@ -1,0 +1,9 @@
+AllCops:
+  NewCops: enable
+
+Style/StringLiterals:
+  Enabled: false
+  # https://anti-pattern.com/always-use-double-quoted-strings-in-ruby
+
+Style/ParallelAssignment:
+  Enabled: false
