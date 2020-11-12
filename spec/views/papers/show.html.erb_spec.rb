@@ -15,6 +15,6 @@ RSpec.describe "papers/show", type: :view do
     expect(rendered).to match(/Title/)
     expect(rendered).to match(/Venue/)
     expect(rendered).to match(/2/)
-    expect(rendered).to match(/Turing/)
+    expect(rendered).to match(/Alan Turing/)
   end
 end
