@@ -1,6 +1,9 @@
 AllCops:
   NewCops: enable
 
+Metrics/BlockLength:
+  ExcludedMethods: ['describe', 'context']
+
 Style/StringLiterals:
   Enabled: false
   # https://anti-pattern.com/always-use-double-quoted-strings-in-ruby
