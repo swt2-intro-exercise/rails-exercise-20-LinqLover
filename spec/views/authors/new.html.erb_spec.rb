@@ -9,11 +9,8 @@ RSpec.describe "authors/new", type: :view do
     render
 
     assert_select "form[action=?][method=?]", authors_path, "post" do
-
       assert_select "input[name=?]", "author[first_name]"
-
       assert_select "input[name=?]", "author[last_name]"
-
       assert_select "input[name=?]", "author[homepage]"
     end
   end

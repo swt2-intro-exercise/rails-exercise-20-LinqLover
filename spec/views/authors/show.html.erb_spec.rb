@@ -4,9 +4,9 @@ RSpec.describe "authors/show", type: :view do
   before(:each) do
     @author = assign(:author, build(:author))
     @author.id = 1337
-    @author.papers = [build(:paper)]
-    @author.papers[0].id = 42
-    # TODO: This is HACKED
+    paper = build(:paper)
+    paper.id = 42
+    @author.papers = [paper]
   end
 
   it "renders attributes in <p>" do
